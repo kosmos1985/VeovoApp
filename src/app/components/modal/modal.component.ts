@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IFlight } from "src/app/models/flight.interface";
 import { FlightService } from 'src/app/service/flight.service';
 import { Location } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -11,13 +12,17 @@ import { Location } from '@angular/common';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit{
-  data ={};
+  data = {};
+  // private subscriptions = new Subscription();
 
   constructor(public http: FlightService, private route: ActivatedRoute, private location: Location) {}
 
   ngOnInit(): void {
     let items = this.route.snapshot.paramMap.get('id');
-    this.data = this.http.getItem(items);
+    let item = this.http.getItem(items);
+    this.data = item;
+    console.log(this.data);
+    
   };
   back() {
     this.location.back();
