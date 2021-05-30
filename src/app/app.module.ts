@@ -7,11 +7,13 @@ import { DataGridModule } from "src/app/components/data-grid/data-grid.module";
 import { FlightService } from "./service/flight.service";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AppRoutingModule } from "./app-routing.module";
+import { ModalComponent } from './components/modal/modal.component';
+import { RouterModule } from "@angular/router";
 
 
 @NgModule({
-    declarations: [AppComponent, PageNotFoundComponent],
-    imports: [BrowserModule, AppRoutingModule, DataGridModule, HttpClientModule ],
+    declarations: [AppComponent, PageNotFoundComponent, ModalComponent],
+    imports: [BrowserModule,RouterModule, AppRoutingModule, DataGridModule, HttpClientModule ],
     providers: [FlightService],
     bootstrap: [AppComponent]
 })

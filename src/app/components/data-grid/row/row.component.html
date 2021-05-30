@@ -1,3 +1,4 @@
+
 <div class="row-container">
     <div class="row-cell">
         <p>{{row.Flightcode}}</p>
@@ -12,6 +13,8 @@
         <p>{{row.OriginDestination}}</p>
     </div>
     <div class="row-cell">
+        <a [routerLink]="['/grid', row.id]">
         <p>{{row.Registration ? row.Registration : '..........'}}</p>
+        </a>
     </div>
 </div>
