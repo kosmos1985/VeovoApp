@@ -5,6 +5,7 @@ import { DataGridComponent } from "./data-grid.component";
 import { GridHeaderModule } from "./header/header.module";
 import { RowModule } from "./row/row.module";
 
+
 @NgModule({
     declarations: [DataGridComponent],
     exports: [ DataGridComponent],

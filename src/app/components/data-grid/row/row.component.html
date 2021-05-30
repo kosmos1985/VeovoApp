@@ -13,10 +13,10 @@
         <p>{{row.OriginDestination}}</p>
     </div>
     <div class="row-cell">
-        <a  [routerLink]="['/grid', row.id]">
+        <a  [routerLink]="['/grid', row.id]" >
         <p>{{row.Registration ? row.Registration : '..........'}}</p>
         </a>
     </div>
-    <!-- [routerLink]="['/grid', row.id]" -->
+    <!-- [routerLink]="['/grid', row.id]"  [data]="row"-->
 </div>
 
