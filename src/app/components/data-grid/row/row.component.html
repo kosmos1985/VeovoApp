@@ -1,0 +1,17 @@
+<div class="row-container">
+    <div class="row-cell">
+        <p>{{row.FlightNumber}}</p>
+    </div>
+    <div class="row-cell">
+        <p>{{row.DateTime | date:"dd/MM/yy" }}</p>
+    </div>
+    <div class="row-cell">
+        <p>{{row.DateTime | date:"hh:mm" }}</p>
+    </div>
+    <div class="row-cell">
+        <p>{{row.OriginDestination}}</p>
+    </div>
+    <div class="row-cell">
+        <p>{{row.Registration ? row.Registration : '..........'}}</p>
+    </div>
+</div>
