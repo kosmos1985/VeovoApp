@@ -7,11 +7,12 @@ import { IFlight } from '../models/flight.interface';
   providedIn: 'root'
 })
 export class FlightService {
-  api_url = '../../assets/mock-data/mockFlights.ts';
+  flights_url = 'http://localhost:3000/flights';
+  registration_url = 'http://localhost:3000/registration';
 
   constructor(private http: HttpClient) { }
 
   getFlight() {
-    return this.http.get<IFlight>(this.api_url).pipe(tap(console.log));
+    return this.http.get<IFlight>(this.flights_url).pipe(tap(console.log));
   }
 }
