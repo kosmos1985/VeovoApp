@@ -13,7 +13,7 @@
         <p>{{row.OriginDestination}}</p>
     </div>
     <div class="row-cell">
-        <a  [routerLink]="['/grid', row.id]" >
+        <a (click)="openDialog()" >
         <p>{{row.Registration ? row.Registration : '..........'}}</p>
         </a>
     </div>

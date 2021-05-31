@@ -17,13 +17,15 @@ export class RowComponent  {
     @Input() public row!: IFlight;
     
     constructor(public dialog: MatDialog) { }
+ 
     openDialog() {
         const dialogRef = this.dialog.open(ModalComponent);
     
         dialogRef.afterClosed().subscribe(result => {
           console.log(`Dialog result: ${result}`);
         });
-      }
-  
-  
+    };
+    
 }
+  
+
