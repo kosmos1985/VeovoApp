@@ -4,5 +4,5 @@ export interface IFlight {
     DateTime: Date;
     OriginDestination: string;
     Registration: string;
-    id: number;
+    id: string;
 }
