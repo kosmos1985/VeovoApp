@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
     templateUrl: "./data-grid.component.html",
     styleUrls: ["./data-grid.component.scss"]
 })
-export class DataGridComponent implements OnInit, OnDestroy{
+export class DataGridComponent implements OnInit,OnDestroy{
     public readonly sampleHeaders = [
         "flight",
         "sch. date",
@@ -19,9 +19,15 @@ export class DataGridComponent implements OnInit, OnDestroy{
     ];
 
     
-    public rows: IFlight[] = [];
-    private subscriptions = new Subscription();
-    constructor(private http: FlightService) { }
+  public rows: IFlight[] = [];
+  private subscriptions = new Subscription();
+  constructor(private http: FlightService) { }
+  // getflights() {
+  //   this.rows = this.http.getFlights();
+  //   console.log(this.rows);
+    
+  //   return this.rows;
+  // }
     
      ngOnInit() {
         const sub = this.http.getFlight().subscribe(dataFlight => {

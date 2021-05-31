@@ -18,13 +18,19 @@
       <b>hhhhh</b>
     </tr>
 </table>
-<button class="close"></button>
+<button type="button" class="close" (click)="back()"></button>
 </h2>
 <mat-dialog-content class="mat-typography">
   <form ngSubmit="formRef" #formRef="ngForm">
       <div class="centre-frame">
         <label >Registration</label>
-        <input type="text" class="form-control" placeholder="Code" aria-label="Registration">
+        <input type="text" class="form-control" placeholder="Code" aria-label="Registration"  [(ngModel)]="searchText"
+        (input)="Search()" #code="ngModel" name="code"/>
+        <ng-container *ngIf="code.touched">
+        <ul *ngFor="let reg of regs">
+          <li (click)="hideList()">{{reg.code}}</li>
+      </ul>
+    </ng-container>
       </div>
   </form>
 </mat-dialog-content>
