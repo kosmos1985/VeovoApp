@@ -11,6 +11,9 @@
     box-sizing: border-box;
     border-bottom: 1px solid #d8d8d8;
 }
+.row-container:hover{
+    cursor: pointer;
+}
 
 .row-cell {
     width: 1000px;

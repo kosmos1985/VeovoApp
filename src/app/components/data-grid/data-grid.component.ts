@@ -3,6 +3,9 @@ import { Component,OnInit, OnDestroy} from "@angular/core";
 import { IFlight } from "src/app/models/flight.interface";
 import { FlightService } from '../../service/flight.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from "@angular/material/dialog";
+import { ModalComponent } from "./row/modal/modal.component";
+
 
 @Component({
     selector: "data-grid",
@@ -20,14 +23,9 @@ export class DataGridComponent implements OnInit,OnDestroy{
 
     
   public rows: IFlight[] = [];
+  
   private subscriptions = new Subscription();
-  constructor(private http: FlightService) { }
-  // getflights() {
-  //   this.rows = this.http.getFlights();
-  //   console.log(this.rows);
-    
-  //   return this.rows;
-  // }
+  constructor(private http: FlightService, public dialog: MatDialog) { }
     
      ngOnInit() {
         const sub = this.http.getFlight().subscribe(dataFlight => {
@@ -37,8 +35,17 @@ export class DataGridComponent implements OnInit,OnDestroy{
           ()=>console.log('Complite')
         );
         this.subscriptions.add(sub);
-    }; 
+  };
+  openDialog({}) {
+    const dialogRef = this.dialog.open(ModalComponent, {
+        data:{}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  };
      ngOnDestroy() {
         this.subscriptions.unsubscribe();
-    }
+  };
 }

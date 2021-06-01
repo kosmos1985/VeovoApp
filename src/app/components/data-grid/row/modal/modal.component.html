@@ -1,18 +1,7 @@
-<!-- <div class="container">
-  <title></title>
-  <form ngSubmit="formRef" #formRef="ngForm">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-    </div>
-  </form>
-  <button type="reset" class="btn btn-info">Cancel</button>
-  <button type="submit" class="btn btn-light">Send</button>
-</div> -->
-
 <h2 mat-dialog-title>
   <table class="header">
     <tr class="row1">
-      <b>dddddd</b>
+      <b>kokokokokok</b>
     </tr>
     <tr class="row2">
       <b>hhhhh</b>
@@ -27,10 +16,10 @@
         <input type="text" class="form-control" placeholder="Code" aria-label="Registration"  [(ngModel)]="searchText"
         (input)="Search()" #code="ngModel" name="code"/>
         <ng-container *ngIf="code.touched">
-        <ul *ngFor="let reg of regs">
-          <li (click)="hideList()">{{reg.code}}</li>
-      </ul>
-    </ng-container>
+          <ul *ngFor="let reg of regs">
+            <li (click)="hideList()">{{reg.code}}</li>
+          </ul>
+      </ng-container>
       </div>
   </form>
 </mat-dialog-content>

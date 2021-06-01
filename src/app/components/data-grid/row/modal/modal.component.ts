@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { IFlight } from "src/app/models/flight.interface";
 import { FlightService } from 'src/app/service/flight.service';
 import { Location } from '@angular/common';
@@ -16,33 +15,39 @@ import { Registration } from 'src/app/models/registration';
 })
 export class ModalComponent implements OnInit, OnDestroy{
   // data = {};
+  
   regs:Registration[]=[];
   searchText!: string | Registration[];
-  private subscriptions = new Subscription();
+  // public data: IFlight[] = [];
+  
+  // private subscriptions1 = new Subscription();
+  private subscriptions2 = new Subscription();
 
-  constructor(public http: FlightService,public regHttp:FlightService, private route: ActivatedRoute, private location: Location) { }
+  constructor(public http: FlightService,public regHttp:FlightService, private location: Location) { }
   // get registrations() {
   //   this.regs = this.http.getRegistrations(); 
   //   return this.regs;
   // }
   ngOnInit(): void {
-    // let items = this.route.snapshot.paramMap.get('id');
-    // let item = this.http.getItem(items);
-    // this.data = item;
-    // console.log(this.data);
+    // const sub1 = this.http.getFlight().subscribe(dataFlight => {
+    //   this.data = dataFlight;
+    //   console.log(this.data);
+    // }, error => console.error(error),
+    //   ()=>console.log('Complite')
+    // );
+    // this.subscriptions1.add(sub1);
+ 
 
-    const sub = this.regHttp.getRegistration().subscribe(dataReg => {
+    const sub2 = this.regHttp.getRegistration().subscribe(dataReg => {
       this.regs = dataReg;
       console.log(this.regs);
     }, error => console.error(error),
       ()=>console.log('Complite')
     );
-    this.subscriptions.add(sub);
+    this.subscriptions2.add(sub2);
     
   };
-  // get registrations() {
-  //   this.regs = this.regHttp.getRegistration();
-  // }
+
   back() {
     this.location.back();
     console.log(this.searchText);
@@ -61,7 +66,7 @@ export class ModalComponent implements OnInit, OnDestroy{
     this.regs = [];
   };
   ngOnDestroy() {
-    this.subscriptions.unsubscribe();
+    this.subscriptions2.unsubscribe();
   };
  
 }
