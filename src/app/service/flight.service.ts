@@ -38,11 +38,11 @@ export class FlightService {
   getFlight() {
     return this.http.get<IFlight>(this.flights_url).pipe(tap(console.log));
   };
-  getItem(_items: string | null): {} {
-    let itemArray = this.http.get<IFlight>(this.flights_url);
-    let item = itemArray.pipe(map(items => items.filter(item => item.id === _items))).subscribe();
-    return item;
-  };
+  // getItem(_items: string | null): {} {
+  //   let itemArray = this.http.get<IFlight>(this.flights_url);
+  //   let item = itemArray.pipe(map(items => items.filter(item => item.id === _items))).subscribe();
+  //   return item;
+  // };
   getRegistration() {
     return this.http.get<Registration>(this.registration_url).pipe(tap(console.log));
   }
