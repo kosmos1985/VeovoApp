@@ -1,12 +1,14 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit,Inject } from '@angular/core';
 
 import { FlightService } from 'src/app/service/flight.service';
 
 import { Observable, Subscription } from 'rxjs';
 
 import { RegistrationService } from 'src/app/service/registration.service';
-import {FormControl} from '@angular/forms';
-import {startWith, map} from 'rxjs/operators';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { startWith, map } from 'rxjs/operators';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+
 
 
 
@@ -22,6 +24,8 @@ export class ModalComponent implements OnInit, OnDestroy {
   control = new FormControl();
   codes: string[] = [];
   filteredCode!: Observable<string[]>;
+  // description!: string;
+  // form!: FormGroup;
 
   private subscriptions2 = new Subscription();
   
@@ -31,7 +35,7 @@ export class ModalComponent implements OnInit, OnDestroy {
  
   
 
-  constructor(public http: FlightService, public regHttp: RegistrationService) {}
+  constructor(public http: FlightService, public regHttp: RegistrationService, private fb: FormBuilder,private dialogRef: MatDialogRef<ModalComponent>) {}
   
   ngOnInit() {
     const sub2 = this.regHttp.getRegistration().subscribe(dataReg => {
@@ -59,6 +63,13 @@ export class ModalComponent implements OnInit, OnDestroy {
     return value.toLowerCase().replace(/\s/g, '');
   }
  
+  // save() {
+  //   this.dialogRef.close(this.form.value);
+  // }
+
+  // close() {
+  //     this.dialogRef.close();
+  // }
   
         // const sub1 = this.http.getFlight().subscribe(dataFlight => {
         //   this.data = dataFlight;
@@ -68,9 +79,7 @@ export class ModalComponent implements OnInit, OnDestroy {
         // );
         // this.subscriptions1.add(sub1);
       
-    hideList() {
-      // this.regs = [];
-    };
+  
     ngOnDestroy() {
       this.subscriptions2.unsubscribe();
     };

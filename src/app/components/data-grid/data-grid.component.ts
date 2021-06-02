@@ -3,7 +3,7 @@ import { Component,OnInit, OnDestroy} from "@angular/core";
 import { IFlight } from "src/app/models/flight.interface";
 import { FlightService } from '../../service/flight.service';
 import { Subscription } from 'rxjs';
-import { MatDialog } from "@angular/material/dialog";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ModalComponent } from "./row/modal/modal.component";
 
 
@@ -36,10 +36,14 @@ export class DataGridComponent implements OnInit,OnDestroy{
         );
         this.subscriptions.add(sub);
   };
-  openDialog({}) {
-    const dialogRef = this.dialog.open(ModalComponent, {
-        data:{}
-    });
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      id: 1,
+      title: 'Angular For Beginners'
+  };
+
+    const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

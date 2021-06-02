@@ -11,7 +11,7 @@
     <button   mat-dialog-close 
     type="button" 
     class="close" 
-    [mat-dialog-close]="true" 
+    [mat-dialog-close]="control.value" 
     ></button>
 </mat-dialog-actions>
 </h2>
@@ -35,7 +35,7 @@
 <footer>
   <mat-dialog-actions align="center">
     <button mat-button  mat-dialog-close>Cancel</button>
-    <button mat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+    <button mat-button color="primary" [mat-dialog-close]="control.value" cdkFocusInitial>Save</button>
   </mat-dialog-actions>
 </footer>
 
