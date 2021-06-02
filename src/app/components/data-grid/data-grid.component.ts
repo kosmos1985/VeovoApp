@@ -45,6 +45,9 @@ export class DataGridComponent implements OnInit,OnDestroy{
       console.log(`Dialog result: ${result}`);
     });
   };
+  // closeDialog() {
+  //   this.dialogRef.close('Pizza!');
+  // }
      ngOnDestroy() {
         this.subscriptions.unsubscribe();
   };

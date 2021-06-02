@@ -7,20 +7,29 @@
       <b>hhhhh</b>
     </tr>
 </table>
-<button type="button" class="close" (click)="back()"></button>
+<mat-dialog-actions align="end">
+    <button   mat-dialog-close 
+    type="button" 
+    class="close" 
+    [mat-dialog-close]="true" 
+    ></button>
+</mat-dialog-actions>
 </h2>
 <mat-dialog-content class="mat-typography">
-  <form ngSubmit="formRef" #formRef="ngForm">
-      <div class="centre-frame">
-        <label >Registration</label>
-        <input type="text" class="form-control" placeholder="Code" aria-label="Registration"  [(ngModel)]="searchText"
-        (input)="Search()" #code="ngModel" name="code"/>
-        <ng-container *ngIf="code.touched">
-          <ul *ngFor="let reg of regs">
-            <li (click)="hideList()">{{reg.code}}</li>
-          </ul>
-      </ng-container>
-      </div>
+  <form class="form">
+    <div class="centre-frame">
+    <label >Registration</label>
+    <input type="text"
+           class="form-control"
+           placeholder="Search for a codes"
+           [formControl]="control"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let code of filteredCode | async" [value]="code">
+        {{code}}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
   </form>
 </mat-dialog-content>
 <footer>
