@@ -2,10 +2,6 @@ import { Component, Input} from "@angular/core";
 import { IFlight } from "src/app/models/flight.interface";
 
 
-
-
-
-
 @Component({
     selector: "data-row",
     templateUrl: "./row.component.html",
@@ -13,11 +9,7 @@ import { IFlight } from "src/app/models/flight.interface";
 })
 export class RowComponent  {
     @Input() public row!: IFlight;
-    
-    constructor() { }
- 
-   
-    
+        
 }
   
 

@@ -1,5 +1,4 @@
 import { Component,OnInit, OnDestroy} from "@angular/core";
-
 import { IFlight } from "src/app/models/flight.interface";
 import { FlightService } from '../../service/flight.service';
 import { Subscription } from 'rxjs';
@@ -46,9 +45,7 @@ export class DataGridComponent implements OnInit,OnDestroy{
       console.log(`Dialog result: ${result}`);
     });
   };
-  // closeDialog() {
-  //   this.dialogRef.close('Pizza!');
-  // }
+
      ngOnDestroy() {
         this.subscriptions.unsubscribe();
   };

@@ -1,16 +1,9 @@
-import { Component, Input, OnDestroy, OnInit,Inject } from '@angular/core';
-
-
-
+import { Component, OnDestroy, OnInit,Inject } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-
 import { RegistrationService } from 'src/app/service/registration.service';
 import { FormControl} from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-
-
-
 
 
 
@@ -24,16 +17,8 @@ export class ModalComponent implements OnInit, OnDestroy {
   control = new FormControl();
   codes: string[] = [];
   filteredCode!: Observable<string[]>;
-  
-
   private subscriptions2 = new Subscription();
   
-  
- 
-  
- 
-  
-
   constructor( public regHttp: RegistrationService, @Inject(MAT_DIALOG_DATA) public data: any) {}
   
   ngOnInit() {

@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
-
-import { Observable, of } from 'rxjs';
-
+import { tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,7 +8,6 @@ import { Observable, of } from 'rxjs';
 })
 export class RegistrationService {
   registration_url: string = 'http://localhost:3000/registration';
-  queryUrl = '?search=';
   
   constructor(public http: HttpClient) { }
   getRegistration() {
