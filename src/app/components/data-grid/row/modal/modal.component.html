@@ -24,7 +24,7 @@
            placeholder="Search for a codes"
            [formControl]="control"
            [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
+    <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
       <mat-option *ngFor="let code of filteredCode | async" [value]="code">
         {{code}}
       </mat-option>
