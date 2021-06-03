@@ -1,7 +1,7 @@
 <h2 mat-dialog-title>
   <table class="header">
     <tr class="row1">
-      <b (click)="console(data.data.Flightcode)">{{data.data.Flightcode}}  Registration</b>
+      <b (click)="console(codes.length)">{{data.data.Flightcode}}  Registration</b>
     </tr>
     <tr class="row2">
       <b>{{data.data.DateTime | date:"dd/MM/yy" }} - {{data.data.DateTime | date:"hh:mm" }}</b>
@@ -25,6 +25,9 @@
            [formControl]="control"
            [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+      <mat-option>
+        Registration ({{codes.length}})
+      </mat-option>
       <mat-option *ngFor="let code of filteredCode | async" [value]="code">
         {{code}}
       </mat-option>
