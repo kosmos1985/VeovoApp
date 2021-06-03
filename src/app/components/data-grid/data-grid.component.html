@@ -5,7 +5,7 @@
   
     <data-row *ngFor="let row of rows" 
         [row]="row"
-        (click)="openDialog()"
+        (click)="openDialog(row)"
     ></data-row>
   
 </div>

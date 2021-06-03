@@ -36,12 +36,9 @@ export class DataGridComponent implements OnInit,OnDestroy{
         );
         this.subscriptions.add(sub);
   };
-  openDialog() {
+  openDialog(row: any) {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.data = {
-      id: 1,
-      title: 'Angular For Beginners'
-  };
+    dialogConfig.data = {data: row};
 
     const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
 
