@@ -44,12 +44,12 @@ export class ModalComponent implements OnInit, OnDestroy {
   }
 
   private _normalizeValue(value: string): string {
-    return value.toLowerCase().replace(/\s/g, '');
+    return value.toLowerCase().replace(/\s/g,'');
   }
  
   console(data: any) {
     console.log(data);
-    
+    //"<strong>" + value + "</strong>"
   }
     ngOnDestroy() {
       this.subscriptions2.unsubscribe();

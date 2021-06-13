@@ -42,6 +42,7 @@ export class DataGridComponent implements OnInit,OnDestroy{
     const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
+      console.log(dialogRef._containerInstance._config.data.data.Flightcode);
       console.log(`Dialog result: ${result}`);
     });
   };
